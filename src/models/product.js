@@ -20,7 +20,11 @@ export default {
     },
 
     effects: {
-        *updateListAsync({ payload }, { call, put }) {  // eslint-disable-line
+        *updateListAsync({ payload }, { call, put, select }) {  // eslint-disable-line
+            const data = yield select(state => {
+                console.log(state);
+            })
+            console.log(data);
             yield put({
                 type: 'updateList',
                 payload
